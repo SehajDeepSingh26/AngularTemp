@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+/* styles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+.form-input {
+  @apply border rounded p-2 w-full;
+}
+
+.form-label {
+  @apply block text-gray-700 font-bold mb-2;
+}
+
+.btn-primary {
+  @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+}
+
+.btn-danger {
+  @apply bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded;
+}
+
+.btn-success {
+  @apply bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded;
+}
+
+.form-error {
+  @apply text-red-500 text-sm mt-1;
+}

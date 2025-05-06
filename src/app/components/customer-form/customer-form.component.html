@@ -1,0 +1,76 @@
+
+// src/app/components/customer/customer-form/customer-form.component.html
+<div class="py-6">
+  <div class="flex justify-between items-center mb-6">
+    <h2 class="text-2xl font-bold text-gray-800">{{ pageTitle }}</h2>
+    <a routerLink="/customers" class="text-blue-600 hover:underline">Back to Customer List</a>
+  </div>
+  
+  <div class="bg-white rounded-lg shadow-md p-6 max-w-2xl mx-auto">
+    <form (ngSubmit)="onSubmit()">
+      <div class="mb-4">
+        <label for="name" class="form-label">Name</label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          [(ngModel)]="customer.name" 
+          class="form-input"
+          [ngClass]="{'border-red-500': errors.name}"
+          placeholder="Customer full name"
+        >
+        <div *ngIf="errors.name" class="form-error">{{ errors.name }}</div>
+      </div>
+      
+      <div class="mb-4">
+        <label for="email" class="form-label">Email</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          [(ngModel)]="customer.email" 
+          class="form-input"
+          [ngClass]="{'border-red-500': errors.email}"
+          placeholder="customer@example.com"
+        >
+        <div *ngIf="errors.email" class="form-error">{{ errors.email }}</div>
+      </div>
+      
+      <div class="mb-4">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input 
+          type="tel" 
+          id="phone" 
+          name="phone" 
+          [(ngModel)]="customer.phone" 
+          class="form-input"
+          [ngClass]="{'border-red-500': errors.phone}"
+          placeholder="555-123-4567"
+        >
+        <div *ngIf="errors.phone" class="form-error">{{ errors.phone }}</div>
+      </div>
+      
+      <div class="mb-6">
+        <label for="address" class="form-label">Address</label>
+        <textarea 
+          id="address" 
+          name="address" 
+          [(ngModel)]="customer.address" 
+          class="form-input h-24"
+          [ngClass]="{'border-red-500': errors.address}"
+          placeholder="Enter customer's full address"
+        ></textarea>
+        <div *ngIf="errors.address" class="form-error">{{ errors.address }}</div>
+      </div>
+      
+      <div class="flex justify-end">
+        <a routerLink="/customers" class="btn-primary bg-gray-500 hover:bg-gray-600 mr-2">
+          Cancel
+        </a>
+        <button type="submit" class="btn-success">
+          {{ isEditMode ? 'Update Customer' : 'Add Customer' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

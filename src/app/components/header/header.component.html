@@ -1,0 +1,21 @@
+
+<header class="bg-blue-600 text-white shadow-md" *ngIf="isLoggedIn()">
+  <div class="container mx-auto p-4">
+    <div class="flex justify-between items-center">
+      <h1 class="text-xl font-bold">Customer Management</h1>
+      
+      <nav class="flex items-center">
+        <a routerLink="/home" class="px-3 py-2 rounded hover:bg-blue-700 mr-2">Home</a>
+        <a routerLink="/customers" class="px-3 py-2 rounded hover:bg-blue-700 mr-2">Customers</a>
+        <a routerLink="/customers/add" class="px-3 py-2 rounded hover:bg-blue-700 mr-2">Add Customer</a>
+        
+        <div class="flex items-center ml-4">
+          <span class="mr-2">{{ currentUser?.username }} ({{ currentUser?.role }})</span>
+          <button (click)="logout()" class="px-3 py-1 bg-red-500 rounded hover:bg-red-600">
+            Logout
+          </button>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>

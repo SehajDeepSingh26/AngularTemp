@@ -1,0 +1,47 @@
+<div class="flex justify-center items-center min-h-screen bg-gray-100">
+    <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
+        <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Login</h2>
+
+        <form (ngSubmit)="onSubmit()">
+            <div class="mb-4">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" id="username" name="username" [(ngModel)]="username" class="form-input"
+                    placeholder="Enter your username" required>
+            </div>
+
+            <div class="mb-6">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" name="password" [(ngModel)]="password" class="form-input"
+                    placeholder="Enter your password" required>
+            </div>
+
+            <div *ngIf="registerUser" class="mb-6">
+                <label for="role" class="form-label">Role</label>
+                <select id="role" name="role" [(ngModel)]="role" class="form-input border" required>
+                    <option value="" disabled selected>Select your role</option>
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                </select>
+            </div>
+
+            <div *ngIf="errorMessage" class="mb-4 text-red-500 text-center">
+                {{ errorMessage }}
+            </div>
+
+            <button type="submit" class="btn-primary w-full mb-3">
+                {{registerUser ? "Register" : "Login"}}
+            </button>
+        </form>
+
+        <button [routerLink]="['../' + (registerUser ? 'login' : 'register')]" class="btn hover:bg-green-500 bg-green-400 p-2 w-full">
+            Want to {{!registerUser ? "Register" : "Login"}}?
+        </button>
+
+        <div *ngIf="!registerUser" class="mt-4 text-center text-sm text-gray-600">
+            <p>Demo Accounts:</p>
+            <p>Admin: username - admin, password - admin123</p>
+            <p>User: username - user, password - user123</p>
+        </div>
+
+    </div>
+</div>
